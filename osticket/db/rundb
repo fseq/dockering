@@ -1,0 +1,7 @@
+docker run --name myosticket_db -d \
+--network osticket \
+-e MYSQL_ROOT_PASSWORD=secret \
+-e MYSQL_USER=osadmin \
+-e MYSQL_PASSWORD=secret \
+-e MYSQL_DATABASE=osticket \
+mariadb:latest

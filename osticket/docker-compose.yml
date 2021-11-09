@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  osticket_db:
+    image: "mysql:5.7"
+    volumes:
+      - osticket_db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: osadmin
+      MYSQL_PASSWORD: WHDUKG913cR9W7omv
+      MYSQL_DATABASE: osticket
+    container_name: osticket_db
+    expose:
+      - "3306"
+
+  osticket_server:
+    build: ./osticket/
+    container_name: osticket_server
+    ports:
+      - "8888:80"
+
+volumes:
+  osticket_db:
